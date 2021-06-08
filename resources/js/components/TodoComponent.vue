@@ -3,9 +3,9 @@
       <form>
               <div class="input-group mb-3 w-100">
       <input
+      v-model="form.title"
         type="text"
         class="form-control form-control-lg"
-        
         aria-describedby="button-addon2"
       />
       <button
@@ -24,7 +24,11 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+        form: new Form({
+            title: '',
+        })
+    };
   },
   mounted() {
     console.log("Component mounted.");
