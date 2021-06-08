@@ -1,6 +1,6 @@
 <template>
   <div class="w-50">
-      <form>
+      <form @submit.prevent="saveData">
               <div class="input-group mb-3 w-100">
       <input
       v-model="form.title"
@@ -29,6 +29,13 @@ export default {
             title: '',
         })
     };
+  },
+  methods: {
+      saveData(){
+          let data = new FormData();
+          data.append('title', this.form.title)
+          axios.post('/api/todo', data)
+      }
   },
   mounted() {
     console.log("Component mounted.");

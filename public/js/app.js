@@ -1876,6 +1876,13 @@ __webpack_require__.r(__webpack_exports__);
       })
     };
   },
+  methods: {
+    saveData: function saveData() {
+      var data = new FormData();
+      data.append('title', this.form.title);
+      axios.post('/api/todo', data);
+    }
+  },
   mounted: function mounted() {
     console.log("Component mounted.");
   }
@@ -37680,40 +37687,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "w-50" }, [
-    _c("form", [
-      _c("div", { staticClass: "input-group mb-3 w-100" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.title,
-              expression: "form.title"
-            }
-          ],
-          staticClass: "form-control form-control-lg",
-          attrs: { type: "text", "aria-describedby": "button-addon2" },
-          domProps: { value: _vm.form.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form, "title", $event.target.value)
-            }
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.saveData.apply(null, arguments)
           }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success",
-            attrs: { type: "submit", id: "button-addon2" }
-          },
-          [_vm._v("\n      Add This to your list\n    ")]
-        )
-      ])
-    ])
+        }
+      },
+      [
+        _c("div", { staticClass: "input-group mb-3 w-100" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.title,
+                expression: "form.title"
+              }
+            ],
+            staticClass: "form-control form-control-lg",
+            attrs: { type: "text", "aria-describedby": "button-addon2" },
+            domProps: { value: _vm.form.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "title", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              attrs: { type: "submit", id: "button-addon2" }
+            },
+            [_vm._v("\n      Add This to your list\n    ")]
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
