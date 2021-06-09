@@ -1863,11 +1863,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -1883,9 +1878,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/todo', data);
     }
   },
-  mounted: function mounted() {
-    console.log("Component mounted.");
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -37727,7 +37720,7 @@ var render = function() {
               staticClass: "btn btn-success",
               attrs: { type: "submit", id: "button-addon2" }
             },
-            [_vm._v("\n      Add This to your list\n    ")]
+            [_vm._v("\n        Add This to your list\n      ")]
           )
         ])
       ]

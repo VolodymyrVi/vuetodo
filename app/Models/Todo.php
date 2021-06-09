@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Todo extends Model
 {
-    use HasFactory;
-    protected $filltable=['title', 'completed'];
+    protected $fillable=['title', 'completed'];
 }
